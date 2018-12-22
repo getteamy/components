@@ -1,0 +1,9 @@
+html,
+body {
+    font-size: 14px
+}
+
+p, button {
+    font-family: 'Avenir Next';
+    font-weight: 500
+}
