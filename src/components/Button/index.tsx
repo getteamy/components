@@ -1,5 +1,13 @@
 import React from 'react'
+import StyledButton from './style'
 
-const Button = () => <div>This is a button</div>
+interface ButtonProps {
+    children: string
+    // onClick: (event: React.MouseEvent<HTMLElement>) => any
+}
+
+const Button = ({children} : ButtonProps) => (
+    <StyledButton>{children}</StyledButton>
+)
 
 export default Button

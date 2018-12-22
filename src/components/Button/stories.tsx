@@ -4,5 +4,5 @@ import Button from './'
 
 storiesOf('Button', module)
   .add('with text', () => (
-    <Button></Button>
+    <Button>Submit</Button>
   ))
