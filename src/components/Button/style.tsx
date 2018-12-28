@@ -23,7 +23,6 @@ export default styled.button`
 
     :hover {
         background-color: #4365CC;
-        transition: .125s ease-in-out;
     }
 
     :active {
