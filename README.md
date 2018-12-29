@@ -2,7 +2,7 @@
 
 ## Installation
 
-> This version is still in development
+> This version is still under development
 
 ``` 
 yarn
