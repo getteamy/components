@@ -22,5 +22,12 @@ export default {
         primary: '637381',
         dark: '454F5B',
         darker: '212B36'
+    },
+    light: {
+        white: 'FFFFFF',
+        light: 'F9FAFB',
+        primary: 'F4F6F8',
+        dark: 'DFE3E8',
+        darker: 'C4CDD5'
     }
 }
