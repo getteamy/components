@@ -3,10 +3,10 @@ import colors from '../Colors'
 
 export enum VARIATIONS {
     DANGER = 'danger',
-    LINK = 'link',
     PRIMARY = 'primary',
-    SECONDARY = 'secondary',
     SUCCESS = 'success',
+    SECONDARY = 'secondary',
+    LINK = 'link',
 }
 
 const COLORS = {
@@ -42,6 +42,8 @@ const getColorFromVariation = (variation: VARIATIONS) : Colors => {
 
 interface StyledButtonProps {
     variation: VARIATIONS
+    disabled?: boolean
+    loading?: boolean
 }
 
 export default styled.button<StyledButtonProps>`
@@ -52,14 +54,26 @@ export default styled.button<StyledButtonProps>`
     border-radius: 5px;
     padding: 0 16px;
     border: 0;
-    cursor: pointer;
     outline: none;
+    width: fit-content;
+    text-transform: capitalize;
 
-    :hover {
-        filter: brightness(0.9) contrast(1.2);
+    ${props => props.disabled && 
+        `
+        opacity: 0.4;
+        `
     }
 
-    :active {
-        filter: brightness(0.8) contrast(1.2);
+    ${props => !props.disabled && 
+        `
+        cursor: pointer;
+        :hover {
+            filter: brightness(0.9) contrast(1.2);
+        }
+    
+        :focus {
+            filter: brightness(0.8) contrast(1.2);
+        }
+        `
     }
 `
