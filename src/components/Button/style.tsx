@@ -76,4 +76,10 @@ export default styled.button<StyledButtonProps>`
         }
         `
     }
+
+    ${props => props.loading &&
+        `
+        cursor: wait;
+        `
+    }
 `
