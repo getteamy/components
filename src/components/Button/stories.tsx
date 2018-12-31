@@ -31,7 +31,7 @@ storiesOf('Button', module)
   ))
   .add('loading', () => (
     <ButtonWrapper>
-      {Object.keys(VARIATIONS).map(
+      {Object.keys(VARIATIONS).filter(key => !['SECONDARY','LINK'].includes(key)).map(
         variation => (
           <Button loading variation={VARIATIONS[variation]}>{VARIATIONS[variation]}</Button>
         )

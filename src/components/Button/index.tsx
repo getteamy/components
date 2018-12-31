@@ -1,5 +1,5 @@
 import React from 'react'
-import StyledButton, { VARIATIONS } from './style'
+import { StyledButton, StyledLoader, VARIATIONS } from './style'
 
 interface ButtonProps {
     children: string
@@ -9,7 +9,10 @@ interface ButtonProps {
 }
 
 const Button = ({children, variation, disabled, loading} : ButtonProps) => (
-    <StyledButton loading={loading} disabled={disabled} variation={variation}>{children}</StyledButton>
+    <StyledButton loading={loading} disabled={disabled} variation={variation}>
+        {children}
+        {loading && <StyledLoader/>}
+    </StyledButton>
 )
 
 export default Button

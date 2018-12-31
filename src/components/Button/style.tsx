@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import React from 'react'
+import styled, { css, keyframes } from 'styled-components'
 import colors from '../Colors'
 
 export enum VARIATIONS {
@@ -46,40 +47,89 @@ interface StyledButtonProps {
     loading?: boolean
 }
 
-export default styled.button<StyledButtonProps>`
-    font-size: 1em;
-    height: 48px;
-    background-color: ${props => getColorFromVariation(props.variation).backgroundColor};
-    color: #${props => getColorFromVariation(props.variation).color};
-    border-radius: 5px;
-    padding: 0 16px;
-    border: 0;
-    outline: none;
-    width: fit-content;
-    text-transform: capitalize;
+export const StyledButton = styled.button<StyledButtonProps>`
+    ${props => {
+            return (css`
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1em;
+                height: 48px;
+                background-color: ${getColorFromVariation(props.variation).backgroundColor};
+                color: #${getColorFromVariation(props.variation).color};
+                border-radius: 5px;
+                padding: 0 16px;
+                border: 0;
+                outline: none;
+                width: fit-content;
+                text-transform: capitalize;
 
-    ${props => props.disabled && 
-        `
-        opacity: 0.4;
-        `
-    }
+                ${props.disabled && 
+                    `
+                    opacity: 0.4;
+                    `
+                }
 
-    ${props => !props.disabled && 
-        `
-        cursor: pointer;
-        :hover {
-            filter: brightness(0.9) contrast(1.2);
+                ${!props.disabled && 
+                    `
+                    cursor: pointer;
+                    :hover {
+                        filter: brightness(0.9) contrast(1.2);
+                    }
+                
+                    :focus {
+                        filter: brightness(0.8) contrast(1.2);
+                    }
+                    `
+                }
+
+                ${props.loading && 
+                    `
+                    cursor: wait;
+                    color: rgba(255,255,255,0);
+                    `
+                }
+            `)
         }
-    
-        :focus {
-            filter: brightness(0.8) contrast(1.2);
-        }
-        `
-    }
-
-    ${props => props.loading &&
-        `
-        cursor: wait;
-        `
     }
 `
+
+interface DotProps {
+    delay?: number
+}
+
+const dotAnimation = keyframes`
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+`
+
+const Dot = styled.div<DotProps>`
+    ${props => {
+        return css`
+            width: 4px;
+            height: 4px;
+            border-radius: 4px;
+            background-color: rgba(255,255,255,0.64);
+            animation: ${dotAnimation} 0.5s ${props.delay || 0}s infinite alternate both;
+        `
+    }}
+`
+
+const Loader = styled.div`
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 24px;
+`
+
+export const StyledLoader = () => (
+    <Loader>
+        <Dot/>
+        <Dot delay={0.15}/>
+        <Dot delay={0.3}/>
+    </Loader>
+)
