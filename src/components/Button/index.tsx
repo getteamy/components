@@ -8,11 +8,9 @@ interface ButtonProps {
     loading?: boolean
 }
 
-const Button = ({children, variation, disabled, loading} : ButtonProps) => (
+export default ({children, variation, disabled, loading} : ButtonProps) => (
     <StyledButton loading={loading} disabled={disabled} variation={variation}>
         {children}
         {loading && <StyledLoader/>}
     </StyledButton>
 )
-
-export default Button
