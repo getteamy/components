@@ -1,6 +1,7 @@
 html,
 body {
-    font-size: 14px
+    font-size: 14px;
+    background-color: #F4F6F8
 }
 
 p, button {
