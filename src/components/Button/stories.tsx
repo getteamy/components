@@ -1,8 +1,9 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
+import styled from 'styled-components'
+
 import Button from './'
 import { VARIATIONS } from './style'
-import styled from 'styled-components'
 
 const ButtonWrapper = styled.div`
   display: grid;
