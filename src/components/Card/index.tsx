@@ -3,8 +3,8 @@ import StyledCard from './style'
 
 interface CardProps {
     children?: ReactNode
-    width: number
-    height: number
+    width?: number
+    height?: number
     title?: string
 }
 
