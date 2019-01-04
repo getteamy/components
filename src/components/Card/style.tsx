@@ -33,6 +33,7 @@ const Title = styled.h1`
         props => `
             font-family: AvenirNext-Medium;
             font-size: 16px;
+            font-weight: 500;
             color: #212B36;
             letter-spacing: 0;
             line-height: 24px;
@@ -44,6 +45,6 @@ const Title = styled.h1`
 
 export default ({title} : StyledCardProps) => (
     <CardContainer>
-        <Title>Title</Title>
+        <Title>{title}</Title>
     </CardContainer>
 )

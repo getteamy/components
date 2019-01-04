@@ -11,6 +11,6 @@ const Wrapper = styled.div`
 storiesOf('Card', module)
     .add('default', () => (
         <Wrapper>
-            <Card title={'Card component'}/>
+            <Card title={'Title'}/>
         </Wrapper>
     ))
