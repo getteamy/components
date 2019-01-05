@@ -3,7 +3,7 @@ import { StyledButton, StyledLoader, VARIATIONS } from './style'
 
 interface ButtonProps {
     children: string
-    variation: VARIATIONS
+    variation?: VARIATIONS
     disabled?: boolean
     loading?: boolean
 }

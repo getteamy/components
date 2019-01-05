@@ -42,7 +42,7 @@ const getColorFromVariation = (variation: VARIATIONS) : Colors => {
 }
 
 interface StyledButtonProps {
-    variation: VARIATIONS
+    variation?: VARIATIONS
     disabled?: boolean
     loading?: boolean
 }
@@ -55,8 +55,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
                 align-items: center;
                 font-size: 1em;
                 height: 48px;
-                background-color: ${getColorFromVariation(props.variation).backgroundColor};
-                color: #${getColorFromVariation(props.variation).color};
+                background-color: ${getColorFromVariation(props.variation || VARIATIONS.PRIMARY).backgroundColor};
+                color: #${getColorFromVariation(props.variation || VARIATIONS.PRIMARY).color};
                 border-radius: 5px;
                 padding: 0 16px;
                 border: 0;
@@ -87,6 +87,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
                     `
                     cursor: wait;
                     color: rgba(255,255,255,0);
+
+                    :hover, :focus {
+                        filter: unset
+                    }
                     `
                 }
             `)
